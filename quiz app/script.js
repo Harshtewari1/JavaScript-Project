@@ -73,9 +73,9 @@ const questions = [
 startBtn.addEventListener("click", function () {
     startScreen.classList.add("hidden");
     quizScreen.classList.remove("hidden");
-    
+
     ques();
-    
+
 })
 
 
@@ -103,7 +103,7 @@ function ques() {
     });
 
     startTimer();
-    
+
 }
 
 function checkAnswer(selectedOption, selectedText) {
@@ -123,32 +123,33 @@ function checkAnswer(selectedOption, selectedText) {
             }
         });
     }
-    
+
     setTimeout(() => {
         allOption.forEach(option => {
             option.style.pointerEvents = "none";
         });
         nextBtN.classList.remove("hidden")
-    }, 100); 
+    }, 100);
 }
 
 
 nextBtN.addEventListener("click", function () {
+    clearInterval(timerInterval);
     currentQuestion++;
     if (currentQuestion < questions.length) {
         ques();
         nextBtN.classList.add("hidden");
-        clearInterval(timerInterval); 
+
     } else {
         showScore();
-        clearInterval(timerInterval); 
+
     }
 })
 
 function showScore() {
-    quizScreen.classList.add("hidden");       
-    resultScreen.classList.remove("hidden"); 
-    fullScore.innerText = score;              
+    quizScreen.classList.add("hidden");
+    resultScreen.classList.remove("hidden");
+    fullScore.innerText = score;
 }
 
 tryAgain.addEventListener("click", function () {
@@ -173,7 +174,7 @@ function startTimer() {
             clearInterval(timerInterval);
             autoLock();
         }
-    },1000)
+    }, 1000)
 }
 
 function autoLock() {
@@ -193,7 +194,7 @@ function autoLock() {
 
 
 
-    
+
 
 
 
